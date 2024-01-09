@@ -11,6 +11,7 @@ const listContacts = async (req, res) => {
 
 const getContactById = async (req, res) => {
   const { contactId } = req.params;
+
   const result = await Contact.findById(contactId);
   if (!result) {
     throw HttpError(404, "Not found");
@@ -65,3 +66,4 @@ module.exports = {
   updateContact: ctrlWrapper(updateContact),
   updateFavorite: ctrlWrapper(updateFavorite),
 };
+
